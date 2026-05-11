@@ -30,9 +30,9 @@ export default class PokemonPage implements OnInit {
           const description = `Pagina del pokemon ${pokemon.name}`;
           this.title.setTitle(pageTitle);
           this.meta.updateTag({ name: "description", content: description })
-          this.meta.updateTag({ name: "og:title", content: pageTitle })
-          this.meta.updateTag({ name: "og:description", content: description })
-          this.meta.updateTag({ name: "og:image", content: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` })
+          this.meta.updateTag({ property: "og:title", content: pageTitle })
+          this.meta.updateTag({ property: "og:description", content: description })
+          this.meta.updateTag({ property: "og:image", content: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` })
         })
       )
       .subscribe(this.pokemon.set);
