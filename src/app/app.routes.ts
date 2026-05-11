@@ -1,7 +1,16 @@
+
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
 
+  {
+    path: "pokemons",
+    loadComponent: () => import("./pages/pokemons/pokemons").then(a => a.Pokemons)
+  },
+  {
+    path: "pokemons/:id",
+    loadComponent: () => import("./pages/pokemon-page/pokemon-page")
+  },
   {
     path: "about",
     loadComponent: () => import("./pages/about/about").then(a => a.About)

@@ -12,7 +12,8 @@ export default class Pricing implements OnInit {
 
   private title = inject(Title);
   private meta = inject(Meta);
-  private platform_id = inject(PLATFORM_ID)
+  // private platform_id = inject(PLATFORM_ID) saber si estamos del lado del cliente o server
+
 
   ngOnInit(): void {
     this.title.setTitle("Pricing Page");
