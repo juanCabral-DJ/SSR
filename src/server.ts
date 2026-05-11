@@ -1,7 +1,26 @@
-import { CommonEngine } from "@angular/ssr/node"
-import { render } from "@netlify/angular-runtime/common-engine"
-const commonEngine = new CommonEngine()
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { getContext } from '@netlify/angular-runtime/context.mjs';
 
-export async function netlifycommonEngineHandler(request: Request, context: any): Promise<Response> {
-  return await render(commonEngine)
+const angularAppEngine = new AngularAppEngine();
+
+export async function netlifyAppEngineHandler(
+  request: Request,
+): Promise<Response> {
+
+  const context = getContext();
+
+  const result = await angularAppEngine.handle(
+    request,
+    context
+  );
+
+  return result || new Response('Not found', {
+    status: 404,
+  });
 }
+
+/**
+ * Angular CLI request handler
+ */
+export const reqHandler =
+  createRequestHandler(netlifyAppEngineHandler);
