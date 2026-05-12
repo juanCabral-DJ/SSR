@@ -4,9 +4,9 @@
 </div>
 }@else{
 @let mypokemon = pokemon()!;
-
 <section class="flex flex-col justify-center">
   <div class="flex justify-center">
+
     <h1 class="text-4xl font-bold capitalize my-5">{{mypokemon.name}}</h1>
   </div>
 </section>
@@ -29,5 +29,10 @@
     <span class="mx-2">{{item.ability?.name}}</span>
     }
   </div>
+</section>
+
+<section class="flex flex-col justify-center mt-10 w-20">
+  <a [routerLink]="['/pokemons/page/1']"
+    class="hover:text-gray-200 text-xl text-gray-500 cursor-pointer hover:underline"><-- atras</a>
 </section>
 }

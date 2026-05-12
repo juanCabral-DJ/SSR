@@ -1,13 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { PokemonUnit } from '../../pokemons/interfaces/pokemon-unit';
 import { PokemonsServices } from '../../pokemons/services/pokemons';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pokemon-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokemon-page.html',
   styleUrl: './pokemon-page.css',
 })
